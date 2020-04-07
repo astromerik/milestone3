@@ -14,7 +14,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template("home.html", projects=mongo.db.caseBrand.find_one())
+    return render_template("home.html", projects=mongo.db.projects.find_one())
 
 
 if __name__ == '__main__':
