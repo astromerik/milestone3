@@ -1,23 +1,52 @@
+
 h1, h5 {
     text-align: center;
 }
 
-
 nav {
     background-color: #01cccc !important;
+}
+
+footer {
+    background-color: #01cccc !important;
+
 }
 
 nav ul a {
     color: black !important;
 }
 
+.brand-logo {
+    margin-left: 20px;
+}
+
 #heroimage {
     max-width: 500px;
     border: 3px solid black;
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 35px;
 }
 
 .heroposition {
     background: linear-gradient(180deg, white 50%, #01cccc 50%);
+}
+
+#keyboardoftheweek {
+    font-size: 20px !important;
+    margin-bottom: 20px;
+}
+
+#creatoroftheweek {
+    font-size: 14px !important;
+    font-style: italic;
+    padding-bottom: 55px;
+}
+
+.startbuttons {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.startbuttons a {
+    background-color: #cc0101 !important;
 }
