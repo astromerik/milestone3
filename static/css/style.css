@@ -1,0 +1,23 @@
+h1, h5 {
+    text-align: center;
+}
+
+
+nav {
+    background-color: #01cccc !important;
+}
+
+nav ul a {
+    color: black !important;
+}
+
+#heroimage {
+    max-width: 500px;
+    border: 3px solid black;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.heroposition {
+    background: linear-gradient(180deg, white 50%, #01cccc 50%);
+}
