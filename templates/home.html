@@ -2,11 +2,23 @@
 
 {% block content %} 
 <h1>Rate My Mech</h1>
-<h5><em><u>THE</u> platform for keyboard enthusiats</em></h5>
+<h5><em><u>THE</u> platform for keyboard enthusiasts</em></h5>
  
 <div class="center-align heroposition">
 <img id="heroimage" src="static/images/hero.png" alt="hero image">
-    <p>{{projects}}</p>
+    <p id="keyboardoftheweek">Keyboard of the week: "{{projects.projectName}}"</p>
+    <p id="creatoroftheweek" >Created by: "{{projects.creator}}"</p>
 </div>
+
+
+    <div class="row startbuttons">
+        <div class="col s3 push-s3">
+            <a class="waves-effect waves-light btn startbuttons"><i class="material-icons left">work</i>Projects</a>
+        </div>
+        <div class="col s3 push-s4">
+            <a class="waves-effect waves-light btn startbuttons"><i class="material-icons left">mood</i>Sign Up</a>
+        </div>
+    </div>
+
 {% endblock %}
 
