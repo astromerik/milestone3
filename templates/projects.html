@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <input type="text" placeholder="Search project...">
+        </div>
+        <div class="col">
+       <label>Case material</label>
+        <select class="browser-default">
+            <option value="" disabled selected>Choose your option</option>
+            {% for mat in casematerial %}
+            <option value="{{mat.Material}}">{{mat.Material}}</option>
+            {% endfor %}
+        </select>  
+        </div>
+        <div class="col">
+       <label>Size</label>
+        <select class="browser-default">
+            <option value="" disabled selected>Choose your option</option>
+            {% for siz in size %}
+            <option value="{{siz.Size}}">{{siz.Size}}</option>
+            {% endfor %}
+        </select>  
+        </div>
+        <div class="col">
+       <label>Layout</label>
+        <select class="browser-default">
+            <option value="" disabled selected>Choose your option</option>
+            {% for lay in layout %}
+            <option value="{{lay.Type}}">{{lay.Type}}</option>
+            {% endfor %}
+        </select>  
+        </div>
+        <div class="col">
+            <a class="waves-effect waves-light btn">button</a>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col">
+             <div class="card small">
+                <!-- Card Content -->
+            </div>
+        </div>
+        <div class="col">
+            <div class="card small">
+                <!-- Card Content -->
+            </div>
+        </div>
+        <div class="col">
+            <div class="card small">
+                <!-- Card Content -->
+            </div>
+        </div>
+    </div>
+
+    <div class="center-align">
+        <ul class="pagination">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+
+    <script>$
+    (document).ready(function(){
+    $('select').formSelect();
+  });</script>
+{% endblock %}
