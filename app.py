@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_pymongo import PyMongo
 import env
 
@@ -24,6 +24,24 @@ def projects():
                            size=mongo.db.layoutSize.find(),
                            layout=mongo.db.layout.find(),
                            projects=mongo.db.projects.find())
+
+
+@app.route('/build')
+def build():
+    return render_template("build.html",
+                           casematerial=mongo.db.caseMaterial.find(),
+                           size=mongo.db.layoutSize.find(),
+                           layout=mongo.db.layout.find(),
+                           projects=mongo.db.projects.find(),
+                           casebrand=mongo.db.caseBrand.find(),
+                           switchbrand=mongo.db.keyswitchBrand.find(),
+                           switchtype=mongo.db.cherry.find())
+
+
+@app.route('/insert_build', methods=['POST'])
+def insert_build():
+    mongo.db.projects.insert_one(request.form.to_dict())
+    return redirect(url_for('build'))
 
 
 if __name__ == '__main__':

@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="row">
-        <div class="col">
-            <input type="text" placeholder="Search project...">
+
+<h2>View keyboards</h2>
+    <div class="row filterrow">
+        <div class="col s12">
+            <input id="filterinput" type="text" placeholder="Search project...">
         </div>
-        <div class="col">
+        <div class="col s12">
        <label>Case material</label>
         <select class="browser-default">
             <option value="" disabled selected>Choose your option</option>
@@ -14,7 +16,7 @@
             {% endfor %}
         </select>  
         </div>
-        <div class="col">
+        <div class="col s12">
        <label>Size</label>
         <select class="browser-default">
             <option value="" disabled selected>Choose your option</option>
@@ -23,7 +25,7 @@
             {% endfor %}
         </select>  
         </div>
-        <div class="col">
+        <div class="col s12">
        <label>Layout</label>
         <select class="browser-default">
             <option value="" disabled selected>Choose your option</option>
@@ -33,14 +35,14 @@
         </select>  
         </div>
         <div class="col">
-            <a class="waves-effect waves-light btn">button</a>
+            <a class="waves-effect waves-light btn filterbutton">Search</a>
         </div>
     </div>
 
     
-    <div class="row">
+    <div class="row center-align">
         {% for builds in projects %}
-        <div class="col s7 l4">
+        <div class="col s7 l4 projectcards">
             <div class="card">
                 <div class="card-image">
                     <img src="{{builds.imgURL}}">
@@ -48,7 +50,7 @@
                 <div class="card-content">
                     <h6>{{builds.projectName}}</h6>
                     <p>{{builds.description}}</p>
-                    <p>Created by: {{builds.creator}}</p>
+                    <p id="signature">Created by: {{builds.creator}}</p>
                 </div>
                 <div class="card-action">
                     <a href="#">View project</a>

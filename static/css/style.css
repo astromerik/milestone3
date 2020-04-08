@@ -1,3 +1,4 @@
+/* --- Base --- */
 
 h1, h5 {
     text-align: center;
@@ -19,6 +20,8 @@ footer {
 .brand-logo {
     margin-left: 20px;
 }
+
+/* --- Home page --- */
 
 #heroimage {
     max-width: 500px;
@@ -51,7 +54,43 @@ footer {
     background-color: #019999 !important;
 }
 
+
+/* --- Project page --- */
+
+.filterrow {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#filterinput {
+    margin-top: 20px;
+}
+
+.filterbutton {
+    margin-top: 25px;
+}
+
+
+@media screen and (min-width:993px)
+{
+    .card img {
+        height: 145px;
+        max-width: 240px;
+    }
+    .projectcards {
+        max-width: 240px;
+    }
+}
+.card-content {
+    height: 190px;
+}
 .card-content p {
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+#signature {
+    font-size: 14px !important;
+    font-style: italic;
+    color: lightgrey;
 }
