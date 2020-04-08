@@ -22,7 +22,8 @@ def projects():
     return render_template("projects.html",
                            casematerial=mongo.db.caseMaterial.find(),
                            size=mongo.db.layoutSize.find(),
-                           layout=mongo.db.layout.find())
+                           layout=mongo.db.layout.find(),
+                           projects=mongo.db.projects.find())
 
 
 if __name__ == '__main__':

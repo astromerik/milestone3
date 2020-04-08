@@ -9,11 +9,11 @@ nav {
 
 footer {
     background-color: #01cccc !important;
-
 }
 
-nav ul a {
-    color: black !important;
+#materializelogo {
+    max-width: 30px;
+    margin-bottom: -10px;
 }
 
 .brand-logo {
@@ -48,5 +48,10 @@ nav ul a {
 }
 
 .startbuttons a {
-    background-color: #cc0101 !important;
+    background-color: #019999 !important;
+}
+
+.card-content p {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
