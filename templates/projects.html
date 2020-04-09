@@ -3,54 +3,56 @@
 {% block content %}
 
 <h2>View keyboards</h2>
+<form action="{{ url_for('projects') }} " method="POST">
     <div class="row filterrow">
-        <div class="col s12">
-            <input id="filterinput" type="text" placeholder="Search project...">
-        </div>
-        <div class="col s12">
+        <div class="col s3">
        <label>Case material</label>
-        <select class="browser-default">
-            <option value="" disabled selected>Choose your option</option>
+        <select id="casemat" name="casemat" class="browser-default">
+            <option value="none" selected>Choose your option</option>
             {% for mat in casematerial %}
-            <option value="{{mat.Material}}">{{mat.Material}}</option>
+            <option  value="{{mat.Material}}">{{mat.Material}}</option>
             {% endfor %}
         </select>  
         </div>
-        <div class="col s12">
+        <div class="col s3">
        <label>Size</label>
-        <select class="browser-default">
-            <option value="" disabled selected>Choose your option</option>
+        <select id="size" name="size" class="browser-default">
+            <option value="none"  selected>Choose your option</option>
             {% for siz in size %}
             <option value="{{siz.Size}}">{{siz.Size}}</option>
             {% endfor %}
         </select>  
         </div>
-        <div class="col s12">
+        <div class="col s3">
        <label>Layout</label>
-        <select class="browser-default">
-            <option value="" disabled selected>Choose your option</option>
+        <select id="layout" name="layout" class="browser-default">
+            <option value="none"  selected>Choose your option</option>
             {% for lay in layout %}
             <option value="{{lay.Type}}">{{lay.Type}}</option>
             {% endfor %}
         </select>  
         </div>
-        <div class="col">
-            <a class="waves-effect waves-light btn filterbutton">Search</a>
+        <div class="col s1">
+            <button class="waves-effect waves-light btn startbuttons" type="submit">Filter</button>
+        </div>
+        <div class="col s2">
+            <a class="waves-effect waves-light btn startbuttons" href="{{ url_for('projects') }}">Clear filters</a>
         </div>
     </div>
-
+</form>
     
     <div class="row center-align">
-        {% for builds in projects %}
+    
+        {% for project in projects %}
         <div class="col s7 l4 projectcards">
             <div class="card">
                 <div class="card-image">
-                    <img src="{{builds.imgURL}}">
+                    <img src="{{project.imgURL}}">
                 </div>
                 <div class="card-content">
-                    <h6>{{builds.projectName}}</h6>
-                    <p>{{builds.description}}</p>
-                    <p id="signature">Created by: {{builds.creator}}</p>
+                    <h6>{{project.projectName}}</h6>
+                    <p>{{project.description}}</p>
+                    <p id="signature">Created by: {{project.creator}}</p>
                 </div>
                 <div class="card-action">
                     <a href="#">View project</a>
@@ -58,36 +60,7 @@
             </div> 
         </div>
         {% endfor %}
-        <div class="col s7 l4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="static/images/exitbutton.jpg">
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">View project</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s7 l4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="static/images/bubbly.jpg">
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">View project</a>
-                </div>
-            </div>
-        </div>
     </div>
-    
 
     <div class="center-align">
         <ul class="pagination">
@@ -100,6 +73,7 @@
             <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
         </ul>
     </div>
+
 
     <script>$
     (document).ready(function(){
