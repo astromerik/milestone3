@@ -55,7 +55,7 @@
                     <p id="signature">Created by: {{project.creator}}</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">View project</a>
+                    <a href="{{ url_for('view_project', project_id=project._id) }}">View project</a>
                 </div>
             </div> 
         </div>
@@ -73,7 +73,7 @@
             <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
         </ul>
     </div>
-
+    
 
     <script>$
     (document).ready(function(){
