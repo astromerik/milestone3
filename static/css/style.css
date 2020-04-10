@@ -107,6 +107,8 @@ footer {
     margin-left: 200px;
     margin-right: 200px;
     margin-bottom: 50px;
+    padding-bottom: 50px;
+    text-align: center;
 }
 
 .inforow img {
@@ -120,4 +122,8 @@ footer {
     color: grey;
     text-align: center;
     margin-bottom: 30px;
+}
+
+.editbutton {
+    margin: 50px;
 }

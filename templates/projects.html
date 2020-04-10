@@ -5,7 +5,7 @@
 <h1>View keyboards</h1>
 <form action="{{ url_for('projects') }} " method="POST">
     <div class="row filterrow">
-        <div class="col s3">
+        <div class="col s12 m3">
        <label>Case material</label>
         <select id="casemat" name="casemat" class="browser-default">
             <option value="none" selected>Choose your option</option>
@@ -14,7 +14,7 @@
             {% endfor %}
         </select>  
         </div>
-        <div class="col s3">
+        <div class="col s12 m3">
        <label>Size</label>
         <select id="size" name="size" class="browser-default">
             <option value="none"  selected>Choose your option</option>
@@ -23,7 +23,7 @@
             {% endfor %}
         </select>  
         </div>
-        <div class="col s3">
+        <div class="col s12 m3">
        <label>Layout</label>
         <select id="layout" name="layout" class="browser-default">
             <option value="none"  selected>Choose your option</option>
@@ -32,10 +32,8 @@
             {% endfor %}
         </select>  
         </div>
-        <div class="col s1">
+        <div class="col s12 m2">
             <button class="waves-effect waves-light btn startbuttons" type="submit">Filter</button>
-        </div>
-        <div class="col s2">
             <a class="waves-effect waves-light btn startbuttons" href="{{ url_for('projects') }}">Clear filters</a>
         </div>
     </div>
@@ -44,7 +42,7 @@
     <div class="row center-align">
     
         {% for project in projects %}
-        <div class="col s7 l4 projectcards">
+        <div class="col s10 l4 push-s1 projectcards">
             <div class="card">
                 <div class="card-image">
                     <img src="{{project.imgURL}}">
