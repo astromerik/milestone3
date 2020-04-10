@@ -72,9 +72,9 @@ def build():
 @app.route('/insert_build', methods=['POST'])
 def insert_build():
     coll.projects.insert_one(request.form.to_dict())
-    return redirect(url_for('build'))
+    return redirect(url_for('projects'))
 
-# View the projects indepth 
+# View the projects indepth
 @app.route('/view_project/<project_id>')
 def view_project(project_id):
     if ObjectId.is_valid(project_id):
@@ -86,21 +86,27 @@ def view_project(project_id):
 def edit_project(project_id):
     if ObjectId.is_valid(project_id):
         the_projects = coll.projects.find_one({'_id': ObjectId(project_id)})
-        return render_template('editdelete.html', projects=the_projects)
+        return render_template('editdelete.html', projects=the_projects,
+                               casematerial=coll.caseMaterial.find(),
+                               size=coll.layoutSize.find(),
+                               layout=coll.layout.find(),
+                               casebrand=coll.caseBrand.find(),
+                               switchbrand=coll.keyswitchBrand.find(),
+                               switchtype=coll.cherry.find())
 
 # Update project
 @app.route('/update_project/<project_id>', methods=['POST'])
 def update_project(project_id):
     coll.projects.update({'_id': ObjectId(project_id)},
-                         {'projectName': request.form.get('projectName'),
-                          'caseBrand': request.form.get('caseBrand'),
-                          'caseMaterial': request.form.get('caseMaterial'),
-                          'keyboardSize': request.form.get('keyboardSize'),
-                          'keyboardLayout': request.form.get('keyboardLayout'),
-                          'keyswitchBrand': request.form.get('keyswitchBrand'),
-                          'keyswitch': request.form.get('keyswitch'),
-                          'description': request.form.get('description'),
-                          'imgURL': request.form.get('imgURL')})
+                             {'projectName': request.form.get('projectName'),
+                              'caseBrand': request.form.get('caseBrand'),
+                              'caseMaterial': request.form.get('caseMaterial'),
+                              'keyboardSize': request.form.get('keyboardSize'),
+                              'keyboardLayout': request.form.get('keyboardLayout'),
+                              'keyswitchBrand': request.form.get('keyswitchBrand'),
+                              'keyswitch': request.form.get('keyswitch'),
+                              'description': request.form.get('description'),
+                              'imgURL': request.form.get('imgURL')})
     return redirect(url_for('projects'))
 
 
