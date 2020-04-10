@@ -98,15 +98,21 @@ def edit_project(project_id):
 @app.route('/update_project/<project_id>', methods=['POST'])
 def update_project(project_id):
     coll.projects.update({'_id': ObjectId(project_id)},
-                             {'projectName': request.form.get('projectName'),
-                              'caseBrand': request.form.get('caseBrand'),
-                              'caseMaterial': request.form.get('caseMaterial'),
-                              'keyboardSize': request.form.get('keyboardSize'),
-                              'keyboardLayout': request.form.get('keyboardLayout'),
-                              'keyswitchBrand': request.form.get('keyswitchBrand'),
-                              'keyswitch': request.form.get('keyswitch'),
-                              'description': request.form.get('description'),
-                              'imgURL': request.form.get('imgURL')})
+                         {'projectName': request.form.get('projectName'),
+                          'caseBrand': request.form.get('caseBrand'),
+                          'caseMaterial': request.form.get('caseMaterial'),
+                          'keyboardSize': request.form.get('keyboardSize'),
+                          'keyboardLayout': request.form.get('keyboardLayout'),
+                          'keyswitchBrand': request.form.get('keyswitchBrand'),
+                          'keyswitch': request.form.get('keyswitch'),
+                          'description': request.form.get('description'),
+                          'imgURL': request.form.get('imgURL')})
+    return redirect(url_for('projects'))
+
+# Delete project
+@app.route('/delete_project/<project_id>')
+def delete_project(project_id):
+    coll.projects.remove({'_id': ObjectId(project_id)})
     return redirect(url_for('projects'))
 
 
