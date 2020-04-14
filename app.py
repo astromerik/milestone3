@@ -79,7 +79,8 @@ def build():
                            projects=coll.projects.find(),
                            casebrand=coll.caseBrand.find(),
                            switchbrand=coll.keyswitchBrand.find(),
-                           switchtype=coll.cherry.find())
+                           switchtype=coll.cherry.find(),
+                           creator=session['user-name'])
 
 # Takes the user input and passes it to the database to build keyboard
 @app.route('/insert_build', methods=['POST'])
@@ -135,7 +136,7 @@ def about():
     return render_template('about.html')
 
 
-# Register
+# Register user
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'GET':
@@ -143,7 +144,7 @@ def register():
     elif request.method == 'POST':
         username = request.form['userid']
         password = request.form['password']
-        _hash = pbkdf2_sha256.hash("password")
+        _hash = pbkdf2_sha256.hash(password)
         coll.users.insert_one({
             'username': username,
             'password': _hash
@@ -166,7 +167,23 @@ def login():
             session['user-name'] = username
         else:
             return "Login error"
-        return render_template("login.html")
+        return redirect(url_for('home'))
+
+
+# Logout
+@app.route('/logout')
+@checked_logged_in
+def logout():
+    session.pop('logged-in', None)
+    session.pop('user-name', None)
+    return redirect(url_for('home'))
+
+
+@app.route('/profile')
+@checked_logged_in
+def profile():
+    return render_template('profile.html',
+                           projects=coll.projects.find())
 
 
 if __name__ == '__main__':

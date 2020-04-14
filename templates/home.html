@@ -11,14 +11,31 @@
 </div>
 
 
-    <div class="row startbuttons">
-        <div class="col s3 push-s3">
-            <a class="waves-effect waves-light btn startbuttons" href="{{url_for('projects')}}" ><i class="material-icons left">work</i>Projects</a>
+    
+    {% if 'logged-in' in session %}
+        <div class="row center-align">
+            <div class="col s12">
+                <a class="waves-effect waves-light btn startbuttons-top" href="{{url_for('projects')}}" ><i class="material-icons left">work</i>Projects</a>
+            </div>
         </div>
-        <div class="col s3 push-s4">
-            <a class="waves-effect waves-light btn startbuttons" href="{{url_for('login')}}"><i class="material-icons left">mood</i>Log in / Sign Up</a>
+        <div class="row startbuttons center-align">
+            <div class="col s12">
+                <a class="waves-effect waves-light btn startbuttons-bottom" href="{{url_for('build')}}"><i class="material-icons left">mood</i>Share your keyboard</a>
+            </div>
         </div>
-    </div>
+        {% else %}
+        <div class="row center-align">
+            <div class="col s12">
+                <a class="waves-effect waves-light btn startbuttons-top" href="{{url_for('projects')}}" ><i class="material-icons left">work</i>Projects</a>
+            </div>
+        </div>
+        <div class="row startbuttons center-align">
+            <div class="col s12">
+                <a class="waves-effect waves-light btn startbuttons-bottom" href="{{url_for('login')}}"><i class="material-icons left">mood</i>Log in / Sign Up</a>
+            </div>
+        </div>
+        {% endif %}
+    
 
 {% endblock %}
 

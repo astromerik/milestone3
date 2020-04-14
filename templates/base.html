@@ -17,11 +17,22 @@
             <a href="#!" class="brand-logo"><i class="medium material-icons">keyboard</i></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
+
+                {% if 'logged-in' in session %}
                 <li><a href="{{url_for('home')}}">Home</a></li>
                 <li><a href="{{url_for('projects')}}">Projects</a></li>
+                <li><a href="{{url_for('profile')}}">Profile</a></li>
                 <li><a href="{{url_for('build')}}">Build</a></li>
                 <li><a href="{{url_for('about')}}">About</a></li>
                 <li><a href="#">Contact</a></li>
+                <li><a href="{{url_for('logout')}}" class="btn waves-effect waves-light red">Log out</a></li>
+                {% else %}
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('projects')}}">Projects</a></li>
+                <li><a href="{{url_for('about')}}">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="{{url_for('login')}}" class="btn waves-effect waves-light">Log in</a></li>
+                {% endif %}
             </ul>
             </div>
         </nav>
