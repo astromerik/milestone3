@@ -114,16 +114,22 @@ footer {
 
 .imageposition {
     background: linear-gradient(180deg, white 50%, #01cccc 50%);
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 100px;
+    margin-right: 100px;
     margin-bottom: 50px;
     padding-bottom: 50px;
     text-align: center;
 }
 
 .inforow img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
+}
+
+@media screen and (max-width:700px){
+    #viewpicture {
+        max-width: 70%;
+    }
 }
 
 #signatureview {

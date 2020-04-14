@@ -167,7 +167,7 @@ def login():
             session['logged-in'] = True
             session['user-name'] = username
         else:
-            return "Login error"
+            return "Error"
         return redirect(url_for('home'))
 
 
@@ -191,6 +191,3 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
-
-
-# flask, pymongo, dnspython and flask-pymongo are installed

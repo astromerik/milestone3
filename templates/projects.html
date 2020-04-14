@@ -34,9 +34,9 @@
         </div>
         </div>
         <div class="row">
-        <div class="col s12 m12 push-m5">
+        <div class="col s12 center-align">
             <button class="waves-effect waves-light btn filterbutton" type="submit">Filter</button>
-            <a class="waves-effect waves-light btn filterbutton" href="{{ url_for('projects') }}">Clear filters</a>
+            <a class="waves-effect waves-light btn filterbutton" href="{{ url_for('projects') }}" onclick="clear()">Clear filters</a>
         </div>
         </div>
     
@@ -45,7 +45,7 @@
     <div class="row center-align">
     
         {% for project in projects %}
-        <div class="col s10 l4 push-l1 projectcards">
+        <div class="col s10 push-s1 l4 projectcards">
             <div class="card">
                 <div class="card-image">
                     <img src="{{project.imgURL}}">
@@ -76,8 +76,29 @@
     </div>
     
 
-    <script>$
-    (document).ready(function(){
-    $('select').formSelect();
-  });</script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var input = document.getElementById('casemat');
+        if (localStorage['casemat']) { 
+            input.value = localStorage['casemat']; 
+        }
+        input.onchange = function () {
+            localStorage['casemat'] = this.value;
+        }
+    var input = document.getElementById('size');
+        if (localStorage['size']) { 
+            input.value = localStorage['size']; 
+        }
+        input.onchange = function () {
+            localStorage['size'] = this.value;
+        }
+    var input = document.getElementById('layout');
+        if (localStorage['layout']) { 
+            input.value = localStorage['layout']; 
+        }
+        input.onchange = function () {
+            localStorage['layout'] = this.value;
+        }
+    });
+    </script>
 {% endblock %}
