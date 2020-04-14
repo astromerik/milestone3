@@ -3,9 +3,10 @@ from functools import wraps
 from flask import Flask, render_template, session, request, redirect, url_for
 from flask_pymongo import PyMongo
 from passlib.hash import pbkdf2_sha256
-import env
 from bson.objectid import ObjectId
-
+from os import path
+if path.exists("env.py"):
+    import env
 
 # Start application
 app = Flask(__name__)
