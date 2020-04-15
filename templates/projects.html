@@ -5,7 +5,7 @@
 <h1>View keyboards</h1>
 <form action="{{ url_for('projects') }} " method="POST">
     <div class="row filterrow">
-        <div class="col s12 m3 push-m2">
+        <div class="col s12 m2 push-m3">
        <label>Case material</label>
         <select id="casemat" name="casemat" class="browser-default">
             <option value="none" selected>Choose your option</option>
@@ -14,7 +14,7 @@
             {% endfor %}
         </select>  
         </div>
-        <div class="col s12 m3 push-m2">
+        <div class="col s12 m2 push-m3">
        <label>Size</label>
         <select id="size" name="size" class="browser-default">
             <option value="none"  selected>Choose your option</option>
@@ -23,7 +23,7 @@
             {% endfor %}
         </select>  
         </div>
-        <div class="col s12 m3 push-m2">
+        <div class="col s12 m2 push-m3">
        <label>Layout</label>
         <select id="layout" name="layout" class="browser-default">
             <option value="none"  selected>Choose your option</option>
@@ -35,47 +35,31 @@
         </div>
         <div class="row">
         <div class="col s12 center-align">
-            <button class="waves-effect waves-light btn filterbutton" type="submit">Filter</button>
+            <button class="waves-effect waves-light btn filterbutton" type="submit">Add filter</button>
             <a class="waves-effect waves-light btn filterbutton" href="{{ url_for('projects') }}" onclick="clear()">Clear filters</a>
         </div>
-        </div>
-    
+    </div>
 </form>
     
-    <div class="row center-align">
-    
+    <div class="row center-align cardrow">
         {% for project in projects %}
-        <div class="col s10 push-s1 l4 projectcards">
+        <div class="col s8 push-s2 m4 push-xl1 projectcards">
             <div class="card">
                 <div class="card-image">
                     <img src="{{project.imgURL}}">
                 </div>
                 <div class="card-content">
                     <h6>{{project.projectName}}</h6>
-                    <p>{{project.description}}</p>
+                    <p class="descriptivetext">{{project.description}}</p>
                     <p id="signature">Created by: {{project.creator}}</p>
                 </div>
                 <div class="card-action">
-                    <a href="{{ url_for('view_project', project_id=project._id) }}">View project</a>
+                <a href="{{ url_for('view_project', project_id=project._id) }}" class="btn waves-effect waves-light teal lighten-3">View keyboard</a>
                 </div>
             </div> 
         </div>
         {% endfor %}
     </div>
-
-    <div class="center-align">
-        <ul class="pagination">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active"><a href="#!">1</a></li>
-            <li class="waves-effect"><a href="#!">2</a></li>
-            <li class="waves-effect"><a href="#!">3</a></li>
-            <li class="waves-effect"><a href="#!">4</a></li>
-            <li class="waves-effect"><a href="#!">5</a></li>
-            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-        </ul>
-    </div>
-    
-
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         var input = document.getElementById('casemat');

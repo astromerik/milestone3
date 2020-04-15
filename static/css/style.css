@@ -1,11 +1,30 @@
 /* --- Base --- */
 
+body {
+    min-height: 100%;
+}
+
 h1, h5, h6 {
     text-align: center;
 }
 
 nav {
     background-color: #01cccc !important;
+}
+
+#navbarlogo {
+    max-width: 150px;
+    margin-top: 10px
+}
+
+@media screen and (max-width:992px){
+    .brand-logo {
+        margin-left: 0 !important;
+    }
+}
+
+.sidenav {
+    text-align: center;
 }
 
 footer {
@@ -23,16 +42,22 @@ footer {
 
 /* --- Home page --- */
 
+.logoimg {
+    margin-top: 30px;
+}
+
 #heroimage {
     max-width: 500px;
     border: 3px solid black;
-    margin-top: 100px;
-    margin-bottom: 35px;
+    margin-top: 50px;
 }
 
 @media screen and (max-width:700px){
     #heroimage {
         max-width: 70%;
+    }
+    .logoimg img {
+        width: 280px;
     }
 }
 
@@ -51,19 +76,11 @@ footer {
     padding-bottom: 55px;
 }
 
-.startbuttons-top {
+.startbuttons {
+    margin-bottom: 50px;
     margin-top: 30px;
-}
-
-.startbuttons-bottom {
-    margin-top: 30px;
-    margin-bottom: 100px;
-}
-
-.startbuttons-top, .startbuttons-bottom {
     background-color: #019999 !important;
 }
-
 
 /* --- Project page --- */
 
@@ -77,8 +94,12 @@ footer {
 }
 
 .filterbutton {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin: 25px;
+    min-width: 135px;
+}
+
+.cardrow {
+    margin-bottom: 200px !important;
 }
 
 @media screen and (min-width:993px)
@@ -99,10 +120,21 @@ footer {
     margin-top: 20px;
 }
 
+.descriptivetext {
+    height: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 #signature {
     font-size: 14px !important;
     font-style: italic;
     color: lightgrey;
+    margin-top: 20px;
+}
+
+.card-action a {
+    text-align: center;
 }
 
 /* --- View Project --- */
@@ -121,14 +153,27 @@ footer {
     text-align: center;
 }
 
-.inforow img {
-    width: 100px;
-    height: 100px;
+.inforow  {
+    margin-bottom: 100px;
 }
 
-@media screen and (max-width:700px){
+.inforow h6 {
+    font-weight: bold;
+}
+
+@media screen and (min-width:600px){
+    .inforow {
+        margin-bottom: 160px !important;
+    }
+}
+
+@media screen and (max-width:600px){
     #viewpicture {
-        max-width: 70%;
+        max-width: 200px;
+    }
+    .imageposition {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -140,13 +185,34 @@ footer {
     margin-bottom: 30px;
 }
 
+.projectdescription {
+    font-style: italic;
+    border-bottom: 1px solid black;
+    padding-bottom: 50px;
+    font-size: 1.3em;
+}
+
 .editbutton {
     margin: 50px;
 }
 
-/* --- login page --- */
+/* --- Build page --- */
 
+.top-option {
+    margin-bottom: 20px;
+}
 
+.buildbutton {
+    margin: 50px;
+}
+
+@media screen and (min-width:601px){
+    .buildbutton {
+        margin-bottom: 320px !important;
+    }
+}
+
+/* --- Login page --- */
 
 .joinbuttons {
     margin-bottom: 100px
@@ -154,4 +220,28 @@ footer {
 
 .loginbutton {
     margin-bottom: 50px
+}
+
+.registerrow {
+    margin-bottom: 290px !important;
+}
+
+/* --- Error/Not logged in --- */
+
+#oops-picture {
+    width: 600px;
+}
+
+/* --- About --- */
+
+.aboutheader {
+    margin-bottom: 50px;
+}
+
+.abouttext {
+
+}
+
+.aboutstatement {
+    font-weight: bold;
 }

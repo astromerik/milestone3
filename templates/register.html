@@ -3,10 +3,23 @@
 
 <h1>Register</h1>
 
-<h4>Register</h4>
     <form action="{{url_for('register')}}" method="POST">
-        Username: <input type="text" name="userid">
-        Password: <input type="password" name="password">
-        <input type="submit" value="Register">
+    <div class="row ">
+        <div class="col m4 s12 offset-m4">
+            Username: <input type="text" name="userid" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m4 s12 offset-m4">
+            Password: <input type="password" name="password" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 center-align">
+            <button class="btn waves-effect waves-light loginbutton" type="submit" name="action" value="Register">Sign up!
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
     </form>
 {% endblock %}

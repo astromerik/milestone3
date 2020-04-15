@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %} 
-<h1>Rate My Mech</h1>
+<div class="row">
+    <div class="col s12 logoimg center-align">
+        <img src="static/images/logo.png" alt="logo">
+    </div>
+</div>
 <h5><em><u>THE</u> platform for keyboard enthusiasts</em></h5>
  
 <div class="center-align heroposition">
@@ -14,24 +18,20 @@
     
     {% if 'logged-in' in session %}
         <div class="row center-align">
-            <div class="col s12">
-                <a class="waves-effect waves-light btn startbuttons-top" href="{{url_for('projects')}}" ><i class="material-icons left">work</i>Projects</a>
+            <div class="col s12 m6">
+                <a class="waves-effect waves-light btn startbuttons" href="{{url_for('projects')}}" ><i class="material-icons left">work</i>Projects</a>
             </div>
-        </div>
-        <div class="row startbuttons center-align">
-            <div class="col s12">
-                <a class="waves-effect waves-light btn startbuttons-bottom" href="{{url_for('build')}}"><i class="material-icons left">mood</i>Share your keyboard</a>
+            <div class="col s12 m6">
+                <a class="waves-effect waves-light btn startbuttons" href="{{url_for('build')}}"><i class="material-icons left">mood</i>Share your keyboard</a>
             </div>
         </div>
         {% else %}
         <div class="row center-align">
-            <div class="col s12">
-                <a class="waves-effect waves-light btn startbuttons-top" href="{{url_for('projects')}}" ><i class="material-icons left">work</i>Projects</a>
+            <div class="col s12 m6">
+                <a class="waves-effect waves-light btn startbuttons" href="{{url_for('projects')}}" ><i class="material-icons left">work</i>Projects</a>
             </div>
-        </div>
-        <div class="row startbuttons center-align">
-            <div class="col s12">
-                <a class="waves-effect waves-light btn startbuttons-bottom" href="{{url_for('login')}}"><i class="material-icons left">mood</i>Log in / Sign Up</a>
+            <div class="col s12 m6">
+                <a class="waves-effect waves-light btn startbuttons" href="{{url_for('login')}}"><i class="material-icons left">mood</i>Log in / Sign Up</a>
             </div>
         </div>
         {% endif %}

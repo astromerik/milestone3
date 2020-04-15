@@ -13,7 +13,7 @@
 <body>
         <nav>
             <div class="nav-wrapper">
-            <a href="#" class="brand-logo"><i class="medium material-icons">keyboard</i></a>
+            <img src="static/images/logotext.png" href="{{url_for('home')}}" id="navbarlogo" class="brand-logo" alt="logo">
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 {% if 'logged-in' in session %}
@@ -31,10 +31,17 @@
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            {% if 'logged-in' in session %}
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('projects')}}">Projects</a></li>
+                <li><a href="{{url_for('profile')}}">Profile</a></li>
+                <li><a href="{{url_for('build')}}">Build</a></li>
+                <li><a href="{{url_for('logout')}}" class="btn waves-effect waves-light red">Log out</a></li>
+                {% else %}
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('projects')}}">Projects</a></li>
+                <li><a href="{{url_for('login')}}" class="btn waves-effect waves-light">Log in</a></li>
+                {% endif %}
         </ul>
     
     <div class="container">
@@ -43,11 +50,11 @@
     <footer class="page-footer">
           <div class="container">
             <div class="row">
-              <div class="col l6 s12 center-align">
+              <div class="col m6 s12 center-align">
                 <h5 class="white-text">About Rate My Mech</h5>
                 <a href="{{url_for('about')}}" class="grey-text text-lighten-4">Our story</a>
               </div>
-              <div class="col l4 offset-l2 s12 center-align">
+              <div class="col m6 s12 center-align">
                 <h5 class="white-text">Have a question?</h5>
                 <a href="#" class="grey-text text-lighten-4">Contact Us</a>
               </div>
