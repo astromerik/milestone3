@@ -73,6 +73,7 @@ def projects():
 @app.route('/build')
 @checked_logged_in
 def build():
+    creator = session['user-name']
     return render_template("build.html",
                            casematerial=coll.caseMaterial.find(),
                            size=coll.layoutSize.find(),
@@ -81,12 +82,14 @@ def build():
                            casebrand=coll.caseBrand.find(),
                            switchbrand=coll.keyswitchBrand.find(),
                            switchtype=coll.cherry.find(),
-                           creator=session['user-name'])
+                           creator=creator)
 
 # Takes the user input and passes it to the database to build keyboard
 @app.route('/insert_build', methods=['POST'])
 def insert_build():
-    coll.projects.insert_one(request.form.to_dict())
+    dict = request.form.to_dict()
+    dict['creator'] = session['user-name']
+    coll.projects.insert_one(dict)
     return redirect(url_for('projects'))
 
 # View the projects indepth
@@ -166,6 +169,7 @@ def login():
         if pbkdf2_sha256.verify(form_password, user_password):
             session['logged-in'] = True
             session['user-name'] = username
+            session['user-id'] = str(user['_id'])
         else:
             return "Error"
         return redirect(url_for('home'))
@@ -177,6 +181,7 @@ def login():
 def logout():
     session.pop('logged-in', None)
     session.pop('user-name', None)
+    session.pop('user-id', None)
     return redirect(url_for('home'))
 
 
