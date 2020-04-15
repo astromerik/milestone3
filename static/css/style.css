@@ -1,6 +1,6 @@
 /* --- Base --- */
 
-h1, h5 {
+h1, h5, h6 {
     text-align: center;
 }
 
@@ -142,4 +142,16 @@ footer {
 
 .editbutton {
     margin: 50px;
+}
+
+/* --- login page --- */
+
+
+
+.joinbuttons {
+    margin-bottom: 100px
+}
+
+.loginbutton {
+    margin-bottom: 50px
 }

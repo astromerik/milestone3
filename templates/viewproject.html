@@ -30,9 +30,10 @@
             <p>Layout style: {{projects.layout}}</p>
         </div>
         </div>
+        {% if projects["creator"] == session['user-name'] %}
         <div class="row center-align editbutton">
             <a href="{{ url_for('edit_project', project_id=projects._id) }}" class="btn waves-effect waves-light">Edit keyboard</a>
         </div>
-    
+        {% endif %}
 
 {% endblock %}

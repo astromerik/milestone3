@@ -4,12 +4,40 @@
 <h1>Login</h1>
 
 <form action="{{url_for('login')}}" method="POST">
-        Username: <input type="text" name="userid">
-        Password: <input type="password" name="password">
-        <input type="submit" value="Login">
+    <div class="row ">
+        <div class="col m4 s12 offset-m4">
+            Username: <input type="text" name="userid">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m4 s12 offset-m4">
+            Password: <input type="password" name="password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m4 s9 offset-m5 offset-s3">
+            <button class="btn waves-effect waves-light loginbutton" type="submit" name="action" value="Login">Login
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
     </form>
 
+    <div class="row">
+        <div class="ccol m4 s12 offset-m4">
+            <h5>Not a member yet?</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m4 s12 offset-m4">
+            <h6>Sign up today and join the world of mechanical keyboards</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m4 s9 offset-m5 offset-s3">
+            <a class="waves-effect waves-light btn-small joinbuttons" href="{{url_for('register')}}">Sign up<i class="material-icons right">check</i></a>
+        </div>
+    </div>    
 
-<h5>Not a member yet? Sign up today by clicking <a href="{{url_for('register')}}">here</a></h5>
 
 {% endblock %}

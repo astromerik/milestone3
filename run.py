@@ -84,6 +84,7 @@ def build():
                            switchtype=coll.cherry.find(),
                            creator=creator)
 
+
 # Takes the user input and passes it to the database to build keyboard
 @app.route('/insert_build', methods=['POST'])
 def insert_build():
@@ -92,12 +93,15 @@ def insert_build():
     coll.projects.insert_one(dict)
     return redirect(url_for('projects'))
 
+
 # View the projects indepth
 @app.route('/view_project/<project_id>')
 def view_project(project_id):
     if ObjectId.is_valid(project_id):
         the_project = coll.projects.find_one({'_id': ObjectId(project_id)})
-        return render_template('viewproject.html', projects=the_project)
+        return render_template('viewproject.html',
+                               projects=the_project)
+
 
 # Edit existing keyboard
 @app.route('/edit_project/<project_id>')
@@ -112,6 +116,7 @@ def edit_project(project_id):
                                casebrand=coll.caseBrand.find(),
                                switchbrand=coll.keyswitchBrand.find(),
                                switchtype=coll.cherry.find())
+
 
 # Update project
 @app.route('/update_project/<project_id>', methods=['POST'])
