@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% block content %} 
 
-<h1>Hi {{session['user-name']}}!</h1>
+<h1>Hi {{username}}!</h1>
 
-
-<h5>Here are your current projects</h5>
-
-    {% if session['user-name'] == projects.creator %}
+{% if projects["creator"] == username %}
+    
+    <h5>Here are your current projects</h5>
     <div class="row center-align">
-        {% for project in projects %}
+    {% for project in all_projects %}
         <div class="col s10 l4 push-l1 projectcards">
             <div class="card">
                 <div class="card-image">
@@ -23,12 +22,16 @@
                 </div>
             </div> 
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-    {{ else }}
+    
+    {% else %}
+    
     <div class="row center-align">
         <h6>You have not shared a project yet, let's do it! </h6>
         <a class="waves-effect waves-light btn startbuttons" href="{{url_for('build')}}"><i class="material-icons left">mood</i>Share your keyboard</a>
     </div>
+    
+    
     {% endif %}
 {% endblock %}

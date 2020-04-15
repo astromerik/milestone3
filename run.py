@@ -164,6 +164,8 @@ def login():
     elif request.method == 'POST':
         username = request.form['userid']
         user = coll.users.find_one({'username': username})
+        if user == None:
+            return render_template('notloggedin.html')
         user_password = user['password']
         form_password = request.form['password']
         if pbkdf2_sha256.verify(form_password, user_password):
@@ -171,7 +173,7 @@ def login():
             session['user-name'] = username
             session['user-id'] = str(user['_id'])
         else:
-            return "Error"
+            return "login error"
         return redirect(url_for('home'))
 
 
@@ -188,8 +190,13 @@ def logout():
 @app.route('/profile')
 @checked_logged_in
 def profile():
+    username = session['user-name']
+    projects = coll.projects.find_one({'creator': username})
+    all_projects = coll.projects.find({'creator': username})
     return render_template('profile.html',
-                           projects=coll.projects.find())
+                           projects=projects,
+                           username=username,
+                           all_projects=all_projects)
 
 
 if __name__ == '__main__':

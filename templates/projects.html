@@ -78,21 +78,21 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-    var input = document.getElementById('casemat');
+        var input = document.getElementById('casemat');
         if (localStorage['casemat']) { 
             input.value = localStorage['casemat']; 
         }
         input.onchange = function () {
             localStorage['casemat'] = this.value;
         }
-    var input = document.getElementById('size');
+        var input = document.getElementById('size');
         if (localStorage['size']) { 
             input.value = localStorage['size']; 
         }
         input.onchange = function () {
             localStorage['size'] = this.value;
         }
-    var input = document.getElementById('layout');
+        var input = document.getElementById('layout');
         if (localStorage['layout']) { 
             input.value = localStorage['layout']; 
         }
@@ -100,5 +100,8 @@
             localStorage['layout'] = this.value;
         }
     });
+    function click() {
+    clearItem('casemat');
+    }
     </script>
 {% endblock %}
