@@ -36,7 +36,7 @@
         <div class="row">
         <div class="col s12 center-align">
             <button class="waves-effect waves-light btn filterbutton" type="submit">Add filter</button>
-            <a class="waves-effect waves-light btn filterbutton" href="{{ url_for('projects') }}" onclick="clear()">Clear filters</a>
+            <button class="waves-effect waves-light btn filterbutton" onclick="clear()">Clear filters</button>
         </div>
     </div>
 </form>
@@ -84,8 +84,10 @@
             localStorage['layout'] = this.value;
         }
     });
-    function click() {
-    clearItem('casemat');
+    function clear() {
+        alert('hi')
+    localStorage.removeItem('casemat');
+    window.location.href = 'http://google.com'
     }
     </script>
 {% endblock %}

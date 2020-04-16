@@ -17,7 +17,7 @@ mongo = PyMongo(app)
 
 coll = mongo.db
 
-
+# Checked if user is logged in 
 def checked_logged_in(func):
     @wraps(func)
     def wrapped_function(*args, **kwargs):
@@ -120,21 +120,26 @@ def edit_project(project_id):
 
 # Update project
 @app.route('/update_project/<project_id>', methods=['POST'])
+@checked_logged_in
 def update_project(project_id):
+    dict = request.form.to_dict()
+    dict['creator'] = session['user-name']
     coll.projects.update({'_id': ObjectId(project_id)},
                          {'projectName': request.form.get('projectName'),
                           'caseBrand': request.form.get('caseBrand'),
                           'caseMaterial': request.form.get('caseMaterial'),
-                          'keyboardSize': request.form.get('keyboardSize'),
-                          'keyboardLayout': request.form.get('keyboardLayout'),
+                          'layoutSize': request.form.get('keyboardSize'),
+                          'layout': request.form.get('keyboardLayout'),
                           'keyswitchBrand': request.form.get('keyswitchBrand'),
                           'keyswitch': request.form.get('keyswitch'),
                           'description': request.form.get('description'),
-                          'imgURL': request.form.get('imgURL')})
+                          'imgURL': request.form.get('imgURL'),
+                          'creator': dict['creator']})
     return redirect(url_for('projects'))
 
 # Delete project
 @app.route('/delete_project/<project_id>')
+@checked_logged_in
 def delete_project(project_id):
     coll.projects.remove({'_id': ObjectId(project_id)})
     return redirect(url_for('projects'))
@@ -164,6 +169,8 @@ def register():
 # Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if 'user-name' in session:
+        return redirect(url_for('home'))
     if request.method == 'GET':
         return render_template("login.html")
     elif request.method == 'POST':

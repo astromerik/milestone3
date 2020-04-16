@@ -9,13 +9,12 @@
         </div>
         
         <div class="row">
-            <div class="input-field col m4 push-m2">
+            <div class="input-field col s12 m4 push-m2">
                 <input id="projectName" name="projectName" type="text" value="{{projects.projectName}}">
                 <label for="icon_prefix">Project Name</label>
             </div>
-            <div class="input-field col m4 push-m2">
-                <input id="imgURL" name="imgURL" type="text" value="{{projects.imgURL}}">
-                <label for="icon_prefix">Project picture URL</label>
+            <div class="input-field col s12 m4 push-m2">
+               <p name="creator" id="creator" type="text" value="{{session['user-name']}}">Created by: <em>{{session['user-name']}}</em></p>
             </div>
         </div>
         <div class="row">
@@ -34,7 +33,7 @@
             </div>
             <div class="col s12 m4 push-m2">
             <label for="icon_prefix">Case material</label>
-            <select class="browser-default">
+            <select class="browser-default" id="caseMaterial" name="caseMaterial">
                 <option value="" disabled >Case material</option>
                 {% for mat in casematerial %}
                     {% if mat.Material == projects.caseMaterial %}
@@ -49,7 +48,7 @@
         <div class="row">
         <div class="col s12 m4 push-m2">
         <label for="icon_prefix">Keyboard size</label>
-            <select class="browser-default" id="layoutSize" name="layoutSize">
+            <select class="browser-default" id="keyboardSize" name="keyboardSize">
                 <option value="" disabled selected>Keyboard size</option>
                 {% for siz in size %}
                 {% if siz.Size == projects.layoutSize %}
@@ -62,7 +61,7 @@
         </div>
             <div class="col s12 m4 push-m2">
             <label for="icon_prefix">Keyboard layout</label>
-            <select class="browser-default" id="layout" name="layout">
+            <select class="browser-default" id="keyboardLayout" name="keyboardLayout">
                 <option value="" disabled selected>Keyboard layout</option>
                 {% for lay in layout %}
                     {% if lay.Type == projects.layout %}
@@ -106,6 +105,10 @@
             <div class="input-field col m8 push-m2">
                 <input id="description" name="description" type="text" value="{{projects.description}}">
                 <label for="icon_prefix">Describe your project</label>
+            </div>
+            <div class="input-field col m4 push-m2">
+                <input id="imgURL" name="imgURL" type="text" value="{{projects.imgURL}}">
+                <label for="icon_prefix">Project picture URL</label>
             </div>
         </div>
         <div class="row center-align">
