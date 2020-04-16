@@ -5,10 +5,10 @@
 
 {% if projects["creator"] == username %}
     
-    <h5>Here are your current projects</h5>
+    <h5 class="profilewelcome">Here are your current projects</h5>
     <div class="row center-align">
     {% for project in all_projects %}
-        <div class="col s10 l4 push-l1 projectcards">
+        <div class="col col s8 push-s2 m4 push-xl1 projectcards">
             <div class="card">
                 <div class="card-image">
                     <img src="{{project.imgURL}}">
@@ -18,12 +18,19 @@
                     <p>{{project.description}}</p>
                 </div>
                 <div class="card-action">
-                    <a href="{{ url_for('view_project', project_id=project._id) }}">View project</a>
+                    <a href="{{ url_for('view_project', project_id=project._id) }}" class="btn waves-effect waves-light teal lighten-3">View keyboard</a>
                 </div>
             </div> 
         </div>
         {% endfor %}
     </div>
+    <h6>Want to share another keyboard?</h6>
+    <div class="row center-align">
+        <div class="col s12">
+            <a class="waves-effect waves-light btn startbuttons" href="{{url_for('build')}}"><i class="material-icons left">mood</i>Build a keyboard</a>
+        </div>
+    </div>
+    
     {% else %}
     
     <div class="row center-align">
@@ -34,10 +41,5 @@
     
     {% endif %}
 
-    <h6>Want to share another keyboard?</h6>
-    <div class="row center-align">
-        <div class="col s12">
-            <a class="waves-effect waves-light btn startbuttons" href="{{url_for('build')}}"><i class="material-icons left">mood</i>Build a keyboard</a>
-        </div>
-    </div>
+    
 {% endblock %}

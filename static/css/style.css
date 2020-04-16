@@ -83,7 +83,7 @@ footer {
 }
 
 .startbuttons {
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     margin-top: 30px;
     background-color: #019999 !important;
 }
@@ -160,17 +160,11 @@ footer {
 }
 
 .inforow  {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .inforow h6 {
     font-weight: bold;
-}
-
-@media screen and (min-width:600px){
-    .inforow {
-        margin-bottom: 160px !important;
-    }
 }
 
 @media screen and (max-width:600px){
@@ -200,6 +194,12 @@ footer {
 
 .editbutton {
     margin: 50px;
+}
+
+/* --- Edit page --- */
+
+.savebutton {
+    margin-bottom: 20px;
 }
 
 /* --- Build page --- */
@@ -238,7 +238,13 @@ footer {
     width: 600px;
 }
 
-/* --- About --- */
+/* --- Profile page --- */
+
+.profilewelcome {
+    margin-bottom: 50px;
+}
+
+/* --- About page --- */
 
 .aboutheader {
     margin-bottom: 50px;

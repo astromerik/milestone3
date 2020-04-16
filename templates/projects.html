@@ -36,7 +36,7 @@
         <div class="row">
         <div class="col s12 center-align">
             <button class="waves-effect waves-light btn filterbutton" type="submit">Add filter</button>
-            <button class="waves-effect waves-light btn filterbutton" onclick="clear()">Clear filters</button>
+            <a class="waves-effect waves-light btn filterbutton" href="{{url_for('projects')}}">Clear filters</a>
         </div>
     </div>
 </form>
@@ -84,10 +84,5 @@
             localStorage['layout'] = this.value;
         }
     });
-    function clear() {
-        alert('hi')
-    localStorage.removeItem('casemat');
-    window.location.href = 'http://google.com'
-    }
     </script>
 {% endblock %}
