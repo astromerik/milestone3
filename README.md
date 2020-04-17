@@ -47,37 +47,37 @@ The users goals are:
 
 #### Balsamiq mockups
 
+To see the initial wireframes for the application click <a href="static/images/demo/wireframes/RateMyMechMockups.pdf" target="_blank">here</a>
+
 ## Featureas
 
 ### Navigation bar and footer 
 
 The navbar take two shapes depending if the user is logged in or not. If the user is not logged in the following navbar is displayed:
 
-<img src="static/images/demo/demonotloggedinnavbar.png" alt="Demonstration navbar" max-height="300px">
+<img src="static/images/demo/demonotloggedinnavbar.png" alt="Demonstration navbar" style="max-height:300px;">
 
 In this format, the navbar is kept very simplistic. The logotype is located to the left and when clicked takes the user to the home page. 
 To the right we find the home button, the keyboard button and a login button. 
 The keyboard button takes the user to the page to view uploaded keyboard while the login button takes the user to the login/registration page.
 
 
-
 If the user is logged in, more options are available: 
 
-<img src="static/images/demo/demologgedinnavbar.png" alt="Demonstration navbar" max-height="300px">
+<img src="static/images/demo/demologgedinnavbar.png" alt="Demonstration navbar" style="max-height:300px;">
 
 Here we add more options to the user. The user is now able to view their own profile page displaying their uploaded keyboards and also build a new keyboard to share. 
 
 
-
 The footer remains the same, not depending of the user being logged in or not:
 
-<img src="static/images/demo/demofooter.png" alt="Demonstration footer" max-height="300px">
+<img src="static/images/demo/demofooter.png" alt="Demonstration footer" style="max-height:300px;">
 
 The footer contains three parts. First a link to the about page and beneath it a copyright statement and a recognition that the front end was built using the Materialize library.
 
 ### Home 
 
-<img src="static/images/demo/demohome.png" alt="Demonstration home" max-height="300px">
+<img src="static/images/demo/demohome.png" alt="Demonstration home" style="max-height:300px;">
 
 At the home page the user is displayed with the logotype, a short statement. and a picture of "keyboard of the week".
 Further down, two bottons are displayed. If the user is not logged in, the two buttons will be "keyboards" and "login/sign up".
@@ -85,7 +85,7 @@ If the user is logged in, the buttons will be "keyboards" and "Share your keyboa
 
 ### Keyboards 
 
-<img src="static/images/demo/demokeyboards.png" alt="Demonstration keyboards" max-height="300px">
+<img src="static/images/demo/demokeyboards.png" alt="Demonstration keyboards" style="max-height:300px;">
 
 At the keyboards page, the user will be able to view all keyboards that has been uploaded to the community. 
 The user will be able to sort the keyboards depending on case material, keyboard size and layout. 
@@ -95,7 +95,7 @@ On all keyboard cards, the button "view keyboard" is available. If clicked, the 
 
 ### View specific keyboard 
 
-<img src="static/images/demo/demoviewkeyboard.png" alt="Demonstration view keyboard" max-height="300px">
+<img src="static/images/demo/demoviewkeyboard.png" alt="Demonstration view keyboard" style="max-height:300px;">
 
 When the "View keyboard" button is clicked on the previous page, the user will get more information of the keyboard of their choice. 
 Here, the user can see the full description of the keyboard, who created it, an enlarged picture, what switches are used, from which brand the components are from and more. 
@@ -104,7 +104,7 @@ This page also include an "edit button" if the user is the creator of the keyboa
 
 ### Login / Registration 
 
-<img src="static/images/demo/demologin.png" alt="Demonstration login" max-height="300px">
+<img src="static/images/demo/demologin.png" alt="Demonstration login" style="max-height:300px;">
 
 The login page is simple with two options. Either the user have an account and can use the login function. 
 If the user does not have an accout the option of register is presented. If the user click the option to register an account the user will be presented with a page similar to the login page.
@@ -113,7 +113,7 @@ When registration is complete, the user will be redirected to the loginpage.
 
 ### Profile / My keyboards
 
-<img src="static/images/demo/demoprofile.png" alt="Demonstration profile" max-height="300px">
+<img src="static/images/demo/demoprofile.png" alt="Demonstration profile" style="max-height:300px;">
 
 My keyboards is visible for logged in users only. At this page, all the projects created by the logged in user is gathered. 
 From this page, the user can easily view their own keybords in depth and from there edit or delete the keyboards. 
@@ -123,7 +123,7 @@ If the user have no shared keyboards the page will display a text with this info
 
 ### Build keyboard 
 
-<img src="static/images/demo/demobuild.png" alt="Demonstration build" max-height="300px">
+<img src="static/images/demo/demobuild.png" alt="Demonstration build" style="max-height:300px;">
 
 When the logged in user want to share their keyboard, they are faced with an intuitive way of doing so. 
 The user need to name the project and describe it. These two input fields are the only two required for the upload to pass the system. 
@@ -144,7 +144,7 @@ The about page contain the Rate My Mech logo and a short text why the applicatio
 
 ### Database 
 
-<img src="static/images/demo/demodatabase.png" alt="Demonstration database" max-height="300px">
+<img src="static/images/demo/demodatabase.png" alt="Demonstration database" style="max-height:300px;">
 
 The database holds a simple structure since (as of today) the content is simple. There are currently no sub-directories since they are independent from one and other.
 For example, when a user builds a keyboard, the existing components in the database are presented as options. 
@@ -202,6 +202,9 @@ For a walkthrough of a manuall testing click [here](TESTING.md)
 ## Deployment
 
 As mentioned, [GitPod](https://www.gitpod.io/) was used as IDE when developing this application. Throug out the development, the project was commited to the git and continuously pushed to GitHub and Heroku. 
+The project is hosted through Heroku since Heroku can run python code. GitHub pages only supports HTML, CSS and JavaScript, thus is not suitable for this project.
+
+#### Deploy to Heroku
 The following steps were taken to deploy the application on Heroku:
 1. Log in to my Heroku 
 2. Click on "new" in the top right corner and choose "create new app"
@@ -213,6 +216,9 @@ The following steps were taken to deploy the application on Heroku:
 
 For Heroku to be able to run the app a Procfile and a requirements.txt must be created which is done in the IDE. 
 After connected and deployed on Heroku, when pushing the workspace to Github 'git push origin master' was used. 
+
+
+#### Run project locally 
 
 If you want to clone the Github repository and run the application locally:
 
