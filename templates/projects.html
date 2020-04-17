@@ -46,7 +46,7 @@
         <div class="col s8 push-s2 m4 push-xl1 projectcards">
             <div class="card">
                 <div class="card-image">
-                    <img src="{{project.imgURL}}">
+                    <img src="{{project.imgURL}}" alt="keyboard card">
                 </div>
                 <div class="card-content">
                     <h6>{{project.projectName}}</h6>
@@ -62,27 +62,27 @@
     </div>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var input = document.getElementById('casemat');
+        var casemat = document.getElementById('casemat');
         if (localStorage['casemat']) { 
-            input.value = localStorage['casemat']; 
+            casemat.value = localStorage['casemat']; 
         }
-        input.onchange = function () {
+        casemat.onchange = function () {
             localStorage['casemat'] = this.value;
-        }
-        var input = document.getElementById('size');
+        };
+        var size = document.getElementById('size');
         if (localStorage['size']) { 
-            input.value = localStorage['size']; 
+            size.value = localStorage['size']; 
         }
-        input.onchange = function () {
+        size.onchange = function () {
             localStorage['size'] = this.value;
-        }
-        var input = document.getElementById('layout');
+        };
+        var layout = document.getElementById('layout');
         if (localStorage['layout']) { 
-            input.value = localStorage['layout']; 
+            layout.value = localStorage['layout']; 
         }
-        input.onchange = function () {
+        layout.onchange = function () {
             localStorage['layout'] = this.value;
-        }
+        };
     });
     </script>
 {% endblock %}

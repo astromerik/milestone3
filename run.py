@@ -17,7 +17,8 @@ mongo = PyMongo(app)
 
 coll = mongo.db
 
-# Checked if user is logged in 
+
+# Checked if user is logged in
 def checked_logged_in(func):
     @wraps(func)
     def wrapped_function(*args, **kwargs):
@@ -26,6 +27,7 @@ def checked_logged_in(func):
         else:
             return render_template('notloggedin.html')
     return wrapped_function
+
 
 # Display home page
 @app.route('/')
@@ -136,6 +138,7 @@ def update_project(project_id):
                           'imgURL': request.form.get('imgURL'),
                           'creator': dict['creator']})
     return redirect(url_for('projects'))
+
 
 # Delete project
 @app.route('/delete_project/<project_id>')

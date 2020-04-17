@@ -52,7 +52,9 @@ The users goals are:
 ### Navigation bar and footer 
 
 The navbar take two shapes depending if the user is logged in or not. If the user is not logged in the following navbar is displayed:
-<img src="static/images/demo/demonotloggedinnavbar.png" alt="Demonstration navbar">
+
+<img src="static/images/demo/demonotloggedinnavbar.png" alt="Demonstration navbar" max-height="300px">
+
 In this format, the navbar is kept very simplistic. The logotype is located to the left and when clicked takes the user to the home page. 
 To the right we find the home button, the keyboard button and a login button. 
 The keyboard button takes the user to the page to view uploaded keyboard while the login button takes the user to the login/registration page.
@@ -60,18 +62,22 @@ The keyboard button takes the user to the page to view uploaded keyboard while t
 
 
 If the user is logged in, more options are available: 
-<img src="static/images/demo/demologgedinnavbar.png" alt="Demonstration navbar">
+
+<img src="static/images/demo/demologgedinnavbar.png" alt="Demonstration navbar" max-height="300px">
+
 Here we add more options to the user. The user is now able to view their own profile page displaying their uploaded keyboards and also build a new keyboard to share. 
 
 
 
 The footer remains the same, not depending of the user being logged in or not:
-<img src="static/images/demo/demofooter.png" alt="Demonstration navbar">
+
+<img src="static/images/demo/demofooter.png" alt="Demonstration footer" max-height="300px">
+
 The footer contains three parts. First a link to the about page and beneath it a copyright statement and a recognition that the front end was built using the Materialize library.
 
 ### Home 
 
-<img src="static/images/demo/demohome.png" alt="Demonstration navbar">
+<img src="static/images/demo/demohome.png" alt="Demonstration home" max-height="300px">
 
 At the home page the user is displayed with the logotype, a short statement. and a picture of "keyboard of the week".
 Further down, two bottons are displayed. If the user is not logged in, the two buttons will be "keyboards" and "login/sign up".
@@ -79,7 +85,7 @@ If the user is logged in, the buttons will be "keyboards" and "Share your keyboa
 
 ### Keyboards 
 
-<img src="static/images/demo/demokeyboards.png" alt="Demonstration navbar">
+<img src="static/images/demo/demokeyboards.png" alt="Demonstration keyboards" max-height="300px">
 
 At the keyboards page, the user will be able to view all keyboards that has been uploaded to the community. 
 The user will be able to sort the keyboards depending on case material, keyboard size and layout. 
@@ -89,7 +95,7 @@ On all keyboard cards, the button "view keyboard" is available. If clicked, the 
 
 ### View specific keyboard 
 
-<img src="static/images/demo/demoviewkeyboard.png" alt="Demonstration navbar">
+<img src="static/images/demo/demoviewkeyboard.png" alt="Demonstration view keyboard" max-height="300px">
 
 When the "View keyboard" button is clicked on the previous page, the user will get more information of the keyboard of their choice. 
 Here, the user can see the full description of the keyboard, who created it, an enlarged picture, what switches are used, from which brand the components are from and more. 
@@ -98,13 +104,16 @@ This page also include an "edit button" if the user is the creator of the keyboa
 
 ### Login / Registration 
 
-<img src="static/images/demo/demologin.png" alt="Demonstration navbar">
+<img src="static/images/demo/demologin.png" alt="Demonstration login" max-height="300px">
 
+The login page is simple with two options. Either the user have an account and can use the login function. 
+If the user does not have an accout the option of register is presented. If the user click the option to register an account the user will be presented with a page similar to the login page.
+When registration is complete, the user will be redirected to the loginpage.
 
 
 ### Profile / My keyboards
 
-<img src="static/images/demo/demoprofile.png" alt="Demonstration navbar">
+<img src="static/images/demo/demoprofile.png" alt="Demonstration profile" max-height="300px">
 
 My keyboards is visible for logged in users only. At this page, all the projects created by the logged in user is gathered. 
 From this page, the user can easily view their own keybords in depth and from there edit or delete the keyboards. 
@@ -114,7 +123,7 @@ If the user have no shared keyboards the page will display a text with this info
 
 ### Build keyboard 
 
-<img src="static/images/demo/demobuild.png" alt="Demonstration navbar">
+<img src="static/images/demo/demobuild.png" alt="Demonstration build" max-height="300px">
 
 When the logged in user want to share their keyboard, they are faced with an intuitive way of doing so. 
 The user need to name the project and describe it. These two input fields are the only two required for the upload to pass the system. 
@@ -135,7 +144,15 @@ The about page contain the Rate My Mech logo and a short text why the applicatio
 
 ### Database 
 
-<img src="static/images/demo/demodatabase.png" alt="Demonstration navbar">
+<img src="static/images/demo/demodatabase.png" alt="Demonstration database" max-height="300px">
+
+The database holds a simple structure since (as of today) the content is simple. There are currently no sub-directories since they are independent from one and other.
+For example, when a user builds a keyboard, the existing components in the database are presented as options. 
+The only "free" choices the user can make is the description of the project, the project name and the URL for the images. 
+
+The chosen option and user inputs are stored in a spearate project dictonary.
+
+The user information is stored in a own dictonary and the password is beeing crypted by the usage of [PassLib](https://passlib.readthedocs.io/en/stable/)
 
 ## Existing features 
 
@@ -150,7 +167,8 @@ The about page contain the Rate My Mech logo and a short text why the applicatio
 * Like - User to be able to like other keyboards. This function could be used to sort keyboards on "Keyboard" page and also give the creator feedback of their builds.
 * Notifications - Provide users with notifications if someone like/comment on their builds.
 * View other users profiles. 
-
+* Message when user have successfully registred an account.
+* Message for users when no keyboard is found in keyboard page. 
 
 ## Technologies used
 
@@ -161,6 +179,7 @@ The about page contain the Rate My Mech logo and a short text why the applicatio
 * [Pymongo](https://pypi.org/project/pymongo/) was used to make the code written in python talk to the database
 * [MongoDB](https://www.mongodb.com/) was used as the database host
 * [Heroku](https://www.heroku.com/) was used to deploye the live version of the application.
+* [PassLib](https://passlib.readthedocs.io/en/stable/) was used to encrypt the users password
 * To make the structure and the site responsive in a simple manner [Materialize](https://materializecss.com/) were used.
 * The website as built and developed using [GitPod](https://www.gitpod.io/) as IDE.
 * The logotype was created using [LogoMakr](https://logomakr.com).
@@ -170,6 +189,15 @@ The about page contain the Rate My Mech logo and a short text why the applicatio
 * [JSHint](https://jshint.com/) were used to validate the websites JavaScript code. 
 
 ## Testing
+
+As of today there are two known issue to the application. 
+Firstly, the sorting functionality on the "Keyboard" page work as expected. However, a function to clear the selected alternatives in the dropdowns are yet to be implemented. 
+Even if the user clear the filters and are beeing displayed with all projects the previously selected options in the dropdown remains unchanged.
+The selected options are currently being stored locally with JavaScript code, thus more JavaScript to clear the dropdowns must be implemented. 
+
+The second issue is that we can create multiple users with the same username, this must be investigated further.
+
+For a walkthrough of a manuall testing click [here](TESTING.md)
 
 ## Deployment
 
