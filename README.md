@@ -49,7 +49,7 @@ The users goals are:
 
 ## Featureas
 
-#### Navigation bar and footer 
+### Navigation bar and footer 
 
 The navbar take two shapes depending if the user is logged in or not. If the user is not logged in the following navbar is displayed:
 <img src="static/images/demo/demonotloggedinnavbar.png" alt="Demonstration navbar">
@@ -69,7 +69,7 @@ The footer remains the same, not depending of the user being logged in or not:
 <img src="static/images/demo/demofooter.png" alt="Demonstration navbar">
 The footer contains three parts. First a link to the about page and beneath it a copyright statement and a recognition that the front end was built using the Materialize library.
 
-#### Home 
+### Home 
 
 <img src="static/images/demo/demohome.png" alt="Demonstration navbar">
 
@@ -77,7 +77,7 @@ At the home page the user is displayed with the logotype, a short statement. and
 Further down, two bottons are displayed. If the user is not logged in, the two buttons will be "keyboards" and "login/sign up".
 If the user is logged in, the buttons will be "keyboards" and "Share your keyboard". 
 
-#### Keyboards 
+### Keyboards 
 
 <img src="static/images/demo/demokeyboards.png" alt="Demonstration navbar">
 
@@ -87,7 +87,7 @@ The user can also clear the filters by clicking the button "clear filters".
 
 On all keyboard cards, the button "view keyboard" is available. If clicked, the user will be sent to a page with a more indepth view of the specific keyboard.
 
-#### View specific keyboard 
+### View specific keyboard 
 
 <img src="static/images/demo/demoviewkeyboard.png" alt="Demonstration navbar">
 
@@ -96,13 +96,13 @@ Here, the user can see the full description of the keyboard, who created it, an 
 
 This page also include an "edit button" if the user is the creator of the keyboard. This button will take the user to the edit/delete page which is presented further down in this README. 
 
-#### Login / Registration 
+### Login / Registration 
 
 <img src="static/images/demo/demologin.png" alt="Demonstration navbar">
 
 
 
-#### Profile / My keyboards
+### Profile / My keyboards
 
 <img src="static/images/demo/demoprofile.png" alt="Demonstration navbar">
 
@@ -112,7 +112,7 @@ Below the kayboards an option for sharing another keyboards is displayed.
 
 If the user have no shared keyboards the page will display a text with this information, and the user have the option to share their first keyboard. 
 
-#### Build keyboard 
+### Build keyboard 
 
 <img src="static/images/demo/demobuild.png" alt="Demonstration navbar">
 
@@ -123,26 +123,90 @@ The user is also able to pass in a URL for the keyboard if desired.
 
 The keyboard is passed to the database when the save button is clicked. 
 
-#### Edit / Delete  
+### Edit / Delete  
 
 As mentioned above, the user will be displayed with the option to edit a keyboard on the indepth view page if they are the creator of the specific keyboard. 
 The edit/delete page look identical to the "build" page except that the fields are filled in based on the information from when the keyboard first was built or from the last edit. 
 Also, instead of the save bottom on the bottom of the page, the user now have the option to save the changes or delete the keyboard. 
 
-#### About 
+### About 
 
 The about page contain the Rate My Mech logo and a short text why the application was created and whom it is for. 
 
-#### Database 
+### Database 
 
 <img src="static/images/demo/demodatabase.png" alt="Demonstration navbar">
 
-# Technologies used 
+## Existing features 
+
+* Navigation bar - Collabsable when screen size is below 993 pixels, different options depending if user is logged in or not
+* Login functionality - Fully functional login and user registration process
+* CRUD - Users are able to upload, read, update and delete content in the database
+* Sorting - Users are able to sort through keyboards
+
+## Features left to implement 
+
+* Comments - Functionality for users to leave comments on other keyboards (and reply to specific comment)
+* Like - User to be able to like other keyboards. This function could be used to sort keyboards on "Keyboard" page and also give the creator feedback of their builds.
+* Notifications - Provide users with notifications if someone like/comment on their builds.
+* View other users profiles. 
 
 
-* Python
-- Flask
-- PythonDNS
-* Heroku
-* MongoDB
+## Technologies used
 
+* The website was built using HTML5 and CSS3. 
+* JavaScript was used to build an interactive webpage and to connect to an API.
+* Python was used to build the structure and functionality of the back end.
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) was used to display python functions on the website
+* [Pymongo](https://pypi.org/project/pymongo/) was used to make the code written in python talk to the database
+* [MongoDB](https://www.mongodb.com/) was used as the database host
+* [Heroku](https://www.heroku.com/) was used to deploye the live version of the application.
+* To make the structure and the site responsive in a simple manner [Materialize](https://materializecss.com/) were used.
+* The website as built and developed using [GitPod](https://www.gitpod.io/) as IDE.
+* The logotype was created using [LogoMakr](https://logomakr.com).
+
+* [W3C's HTLM Validator](https://validator.w3.org/) were used to validate the websites HTML code. 
+* [W3C's CSS Validator](https://validator.w3.org/) were used to validate the websites CSS code. 
+* [JSHint](https://jshint.com/) were used to validate the websites JavaScript code. 
+
+## Testing
+
+## Deployment
+
+As mentioned, [GitPod](https://www.gitpod.io/) was used as IDE when developing this application. Throug out the development, the project was commited to the git and continuously pushed to GitHub and Heroku. 
+The following steps were taken to deploy the application on Heroku:
+1. Log in to my Heroku 
+2. Click on "new" in the top right corner and choose "create new app"
+3. Choose the name of the application and set "Region" to Europe. Click "Create app"
+4. Go to settings and add the config vars PORT (5000) and IP (0.0.0.0)
+5. Login on Heroku through the CLI in your IDE. 
+6. Add the project as a master branch 
+7. Push to Heroku (git push)
+
+For Heroku to be able to run the app a Procfile and a requirements.txt must be created which is done in the IDE. 
+After connected and deployed on Heroku, when pushing the workspace to Github 'git push origin master' was used. 
+
+If you want to clone the Github repository and run the application locally:
+
+1. Follow the link to the main page of the repository by clicking [here](https://github.com/astromerik/milestone3)
+2. Click on the option "Clone or download"
+3. Copy the link of the repository by grabbing the displayed URL 
+4. Open the terminal of your choice
+5. Change the work directory to where you want the cloned directory to be inserted
+6. type "git clone" in the terminal window followed by the previously copied URL
+7. Press enter and your clone will be created.
+
+More information can be found in Githubs documentation [here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+
+## Credits 
+
+### Media
+* Images used in the webpage was collected from [Pixabay](https://pixabay.com).
+* The logotype was created using [LogoMakr](https://logomakr.com).
+
+### Code
+* The login functionality of the website was created with help from Code Institute tutor Kevin Loughrey.
+
+### Acknowledgements
+* A big thank you to my tutors at Code Institute for helping me along the way. 
+* Also a big thank you to my mentor Brian Macharia for all great feedback and for taking the time to help me. 
