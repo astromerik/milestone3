@@ -1,6 +1,6 @@
 import os
 from functools import wraps
-from flask import Flask, render_template, session, request, redirect, url_for
+from flask import Flask, render_template, session, request, redirect, url_for, flash
 from flask_pymongo import PyMongo
 from passlib.hash import pbkdf2_sha256
 from bson.objectid import ObjectId
@@ -159,14 +159,19 @@ def register():
     if request.method == 'GET':
         return render_template("register.html")
     elif request.method == 'POST':
-        username = request.form['userid']
-        password = request.form['password']
-        _hash = pbkdf2_sha256.hash(password)
-        coll.users.insert_one({
-            'username': username,
-            'password': _hash
-        })
-        return render_template('login.html')
+        existing_user = coll.users.find_one({'username': request.form['userid']})
+        if existing_user is None:
+            username = request.form['userid']
+            password = request.form['password']
+            _hash = pbkdf2_sha256.hash(password)
+            coll.users.insert_one({
+                'username': username,
+                'password': _hash
+                })
+            flash('Account created, you can now log in')
+            return render_template('login.html')
+        flash('Sorry, username is already taken. Please try another one')
+        return redirect(url_for('register'))
 
 
 # Login
@@ -180,7 +185,8 @@ def login():
         username = request.form['userid']
         user = coll.users.find_one({'username': username})
         if user == None:
-            return render_template('notloggedin.html')
+            flash('Sorry, this username does not exist. Please try again')
+            return redirect(url_for('login'))
         user_password = user['password']
         form_password = request.form['password']
         if pbkdf2_sha256.verify(form_password, user_password):
@@ -188,7 +194,8 @@ def login():
             session['user-name'] = username
             session['user-id'] = str(user['_id'])
         else:
-            return "login error"
+            flash('Username does not match with password. Please try again')
+            return redirect(url_for('login'))
         return redirect(url_for('home'))
 
 

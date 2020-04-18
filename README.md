@@ -108,7 +108,7 @@ This page also include an "edit button" if the user is the creator of the keyboa
 
 The login page is simple with two options. Either the user have an account and can use the login function. 
 If the user does not have an accout the option of register is presented. If the user click the option to register an account the user will be presented with a page similar to the login page.
-When registration is complete, the user will be redirected to the loginpage.
+When registration is complete, the user will be redirected to the login page. Error messages in form of JavaScript alerts will be presented if the user tries to log in with non existing credentials, an existing username but with a non matching password or register an account with an already existing username.
 
 
 ### Profile / My keyboards
@@ -146,7 +146,7 @@ The about page contain the Rate My Mech logo and a short text why the applicatio
 
 <img src="static/images/demo/demodatabase.png" alt="Demonstration database" style="max-height:300px;">
 
-The database holds a simple structure since (as of today) the content is simple. There are currently no sub-directories since they are independent from one and other.
+The database holds a simple structure since (as of today) the content is limited. There are currently no sub-directories since all dictionaries they are independent from one and other exept of the keyswitch brand and keyswitch type. Keyswitch type will be a sub-directory/sub-element of keyswitch brand as soon as keyswitch types is being populated with more components.  
 For example, when a user builds a keyboard, the existing components in the database are presented as options. 
 The only "free" choices the user can make is the description of the project, the project name and the URL for the images. 
 
@@ -165,10 +165,10 @@ The user information is stored in a own dictonary and the password is beeing cry
 
 * Comments - Functionality for users to leave comments on other keyboards (and reply to specific comment)
 * Like - User to be able to like other keyboards. This function could be used to sort keyboards on "Keyboard" page and also give the creator feedback of their builds.
-* Notifications - Provide users with notifications if someone like/comment on their builds.
+* Notifications - Provide users with notifications if someone like/comment on their keyboards.
 * View other users profiles. 
-* Message when user have successfully registred an account.
-* Message for users when no keyboard is found in keyboard page. 
+* Message for users when no keyboard is found in keyboard page after applying filters. 
+* Functionality to upload pictures in their original format instead of passing in a URL (AWS Buckets could be an alternative)
 
 ## Technologies used
 
@@ -190,12 +190,10 @@ The user information is stored in a own dictonary and the password is beeing cry
 
 ## Testing
 
-As of today there are two known issue to the application. 
-Firstly, the sorting functionality on the "Keyboard" page work as expected. However, a function to clear the selected alternatives in the dropdowns are yet to be implemented. 
+As of today there are one known issue to the application. 
+The sorting functionality on the "Keyboard" page work as expected. However, a function to clear the selected alternatives in the dropdowns are yet to be implemented. 
 Even if the user clear the filters and are beeing displayed with all projects the previously selected options in the dropdown remains unchanged.
 The selected options are currently being stored locally with JavaScript code, thus more JavaScript to clear the dropdowns must be implemented. 
-
-The second issue is that we can create multiple users with the same username, this must be investigated further.
 
 For a walkthrough of a manuall testing click [here](TESTING.md)
 
